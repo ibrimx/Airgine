@@ -1,64 +1,30 @@
-/* =========================
-   AIRGINE DESIGN TOKENS
-========================= */
-
-/* Light Theme */
 :root {
-
   /* Colors */
-  --bg-primary: #f6f7fb;
-  --bg-secondary: #ffffff;
-  --bg-glass: rgba(255,255,255,0.6);
+  --bg-primary: #0f0f12;
+  --bg-secondary: #16161c;
+  --bg-glass: rgba(255, 255, 255, 0.06);
 
-  --text-primary: #111318;
-  --text-secondary: #5f6368;
+  --text-primary: #ffffff;
+  --text-secondary: #b5b5c3;
 
-  --accent: #6c63ff;
-  --accent-soft: rgba(108,99,255,0.15);
-
-  --border-soft: rgba(0,0,0,0.06);
+  --accent: #6c5ce7;
 
   /* Radius */
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
 
   /* Shadows */
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-  --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.25);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.35);
 
-  /* Spacing */
-  --space-xs: 6px;
-  --space-sm: 12px;
-  --space-md: 20px;
-  --space-lg: 32px;
-  --space-xl: 48px;
+  /* Blur */
+  --glass-blur: blur(20px);
 
-  /* Animation */
-  --ease: cubic-bezier(.4,.0,.2,1);
-  --transition-fast: 150ms var(--ease);
-  --transition-base: 300ms var(--ease);
+  /* Grid */
+  --grid-gap: 24px;
+  --container-width: 1400px;
 
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
-
-  --bg-primary: #0f1115;
-  --bg-secondary: #171a21;
-  --bg-glass: rgba(255,255,255,0.05);
-
-  --text-primary: #f1f3f4;
-  --text-secondary: #9aa0a6;
-
-  --accent: #8b82ff;
-  --accent-soft: rgba(139,130,255,0.15);
-
-  --border-soft: rgba(255,255,255,0.08);
-
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.4);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
-  --shadow-lg: 0 20px 50px rgba(0,0,0,0.6);
-
+  /* Transition */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
