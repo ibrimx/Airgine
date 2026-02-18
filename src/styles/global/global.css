@@ -14,6 +14,19 @@ body {
   font-family: Inter, system-ui, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
+  min-height: 100%;
+}
+
+/* Light Mode */
+:root {
+  --bg-primary: linear-gradient(135deg, #f3f6fb, #e8eef7);
+  --text-primary: #111;
+}
+
+/* Dark Mode */
+.dark {
+  --bg-primary: radial-gradient(circle at 20% 20%, #1b1b2b, #0e0e16);
+  --text-primary: #fff;
 }
 
 a {
@@ -26,6 +39,7 @@ a {
   margin: 0 auto;
   padding: 40px 24px;
 }
+
 .site {
   max-width: 1200px;
   margin: 0 auto;
