@@ -7,37 +7,31 @@ interface Props {
 }
 
 const { cards } = Astro.props;
-
-function sizeToStyle(size: CardConfig["size"]) {
-  switch (size) {
-    case "1x1":
-      return "grid-column: span 1; grid-row: span 1;";
-    case "1x2":
-      return "grid-column: span 1; grid-row: span 2;";
-    case "2x1":
-      return "grid-column: span 2; grid-row: span 1;";
-    case "2x2":
-      return "grid-column: span 2; grid-row: span 2;";
-    default:
-      return "grid-column: span 1; grid-row: span 1;";
-  }
-}
 ---
 
-<div class="grid">
+<div class="air-grid">
   {cards.map((card) => (
-    <div style={sizeToStyle(card.size)}>
+    <div class={`grid-item size-${card.gridSize ?? "1x1"}`}>
       <CardBase config={card} />
     </div>
   ))}
 </div>
 
 <style>
-.grid {
+.air-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-auto-rows: 220px;
-  gap: 28px;
-  padding: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.size-1x1 { grid-column: span 1; grid-row: span 1; }
+.size-1x2 { grid-column: span 1; grid-row: span 2; }
+.size-2x1 { grid-column: span 2; grid-row: span 1; }
+.size-2x2 { grid-column: span 2; grid-row: span 2; }
+
+.grid-item {
+  position: relative;
 }
 </style>
