@@ -41,24 +41,40 @@ const gridSize = config.gridSize ?? "1x1";
   padding: 24px;
   overflow: hidden;
 
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
 
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
 
   box-shadow:
-    0 8px 40px rgba(0,0,0,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.2);
+    0 8px 32px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 
-  transition: transform .35s cubic-bezier(.2,.8,.2,1),
-              box-shadow .35s ease;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1),
+              box-shadow .4s ease;
+}
+
+.air-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.05)
+  );
+
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .air-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.02);
   box-shadow:
-    0 16px 60px rgba(0,0,0,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+    0 18px 60px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.5);
 }
 </style>
