@@ -1,11 +1,70 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import GridRenderer from "../components/grid/GridRenderer.astro";
+
+import { processContent } from "../../lib/engine/contentEngine";
+import { generateCardConfigs } from "../../lib/engine/layoutEngine";
+import { enhanceCard } from "../../lib/engine/cardEngine";
+
+import type { ContentItem } from "../../lib/types/content";
+
+// ① Mock Data (بديل Notion حالياً)
+
+const rawContent: ContentItem[] = [
+  {
+    id: "1",
+    slug: "first-post",
+    type: "post",
+    section: "blog",
+    title: "First Article",
+    excerpt: "This is a simple text card.",
+    cardVariant: "text",
+    gridSize: "1x1",
+    status: "published",
+  },
+  {
+    id: "2",
+    slug: "hero-project",
+    type: "project",
+    section: "projects",
+    title: "Hero Project",
+    excerpt: "Big visual project showcase.",
+    cover: "https://picsum.photos/800/600",
+    cardVariant: "hero",
+    gridSize: "2x2",
+    background: "linear-gradient(135deg,#667eea,#764ba2)",
+    textColor: "light",
+    featured: true,
+    status: "published",
+  },
+  {
+    id: "3",
+    slug: "image-post",
+    type: "post",
+    section: "blog",
+    title: "Image Card",
+    cover: "https://picsum.photos/600/400",
+    cardVariant: "media",
+    gridSize: "2x1",
+    status: "published",
+  },
+];
+
+// ② Run Engines
+
+const published = processContent(rawContent);
+const configs = generateCardConfigs(published);
+const finalCards = configs.map(enhanceCard);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html>
+  <head>
+    <title>AIRGINE</title>
+  </head>
+  <body>
+    <main style="padding:40px;">
+      <GridRenderer cards={finalCards} />
+    </main>
+  </body>
+</html>
