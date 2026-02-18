@@ -1,30 +1,24 @@
 :root {
-  /* Colors */
-  --bg-primary: #0f0f12;
-  --bg-secondary: #16161c;
-  --bg-glass: rgba(255, 255, 255, 0.06);
+  /* spacing */
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 28px;
 
-  --text-primary: #ffffff;
-  --text-secondary: #b5b5c3;
-
-  --accent: #6c5ce7;
-
-  /* Radius */
+  /* radius */
+  --radius-md: 16px;
+  --radius-lg: 22px;
   --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 14px;
 
-  /* Shadows */
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.25);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.35);
+  /* shadows */
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
 
-  /* Blur */
-  --glass-blur: blur(20px);
+  /* glass */
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-bg-dark: rgba(25,25,25,0.55);
 
-  /* Grid */
-  --grid-gap: 24px;
-  --container-width: 1400px;
+  --glass-border: rgba(255,255,255,0.6);
+  --glass-border-dark: rgba(255,255,255,0.08);
 
-  /* Transition */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --accent: #6c63ff;
 }
