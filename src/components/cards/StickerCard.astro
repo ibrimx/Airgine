@@ -1,0 +1,40 @@
+---
+// src/components/cards/StickerCard.astro
+
+import type { CardConfig } from "../../../lib/types/layout";
+
+interface Props {
+  config: CardConfig;
+}
+
+const { config } = Astro.props;
+---
+
+<div class="sticker-card">
+  <h3>{config.content.title}</h3>
+  {config.content.excerpt && <p>{config.content.excerpt}</p>}
+
+  <div class="sticker">✨</div>
+  <div class="sticker second">🚀</div>
+</div>
+
+<style>
+.sticker-card {
+  position: relative;
+  padding: 24px;
+}
+
+.sticker {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  transform: rotate(-12deg);
+}
+
+.sticker.second {
+  bottom: 15px;
+  left: 20px;
+  transform: rotate(8deg);
+}
+</style>
