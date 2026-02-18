@@ -1,0 +1,45 @@
+---
+
+import type { CardConfig } from "../../../lib/types/layout";
+
+interface Props {
+  config: CardConfig;
+}
+
+const { config } = Astro.props;
+---
+
+<div class="media-card">
+  {config.content.cover && (
+    <img src={config.content.cover} alt={config.content.title} />
+  )}
+
+  <div class="media-content">
+    <h3>{config.content.title}</h3>
+    {config.content.excerpt && <p>{config.content.excerpt}</p>}
+  </div>
+</div>
+
+<style>
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.media-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.media-content h3 {
+  font-size: 1.1rem;
+}
+
+.media-content p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+</style>
