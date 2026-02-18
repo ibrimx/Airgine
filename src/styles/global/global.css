@@ -12,21 +12,26 @@ body {
   margin: 0;
   padding: 0;
   font-family: Inter, system-ui, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100%;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 20% 20%, #e9f1ff, transparent 40%),
+    radial-gradient(circle at 80% 30%, #f3e8ff, transparent 40%),
+    radial-gradient(circle at 50% 80%, #ffe9f2, transparent 40%),
+    #f6f8fb;
+
+  color: #111;
 }
 
-/* Light Mode */
-:root {
-  --bg-primary: linear-gradient(135deg, #f3f6fb, #e8eef7);
-  --text-primary: #111;
-}
+.dark html,
+.dark body {
+  background:
+    radial-gradient(circle at 20% 20%, #2b2b40, transparent 40%),
+    radial-gradient(circle at 80% 30%, #1b1b2f, transparent 40%),
+    radial-gradient(circle at 50% 80%, #141421, transparent 40%),
+    #0e0e16;
 
-/* Dark Mode */
-.dark {
-  --bg-primary: radial-gradient(circle at 20% 20%, #1b1b2b, #0e0e16);
-  --text-primary: #fff;
+  color: #fff;
 }
 
 a {
@@ -35,7 +40,7 @@ a {
 }
 
 .container {
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 24px;
 }
