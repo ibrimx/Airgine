@@ -8,61 +8,36 @@ interface Props {
 
 const { cards } = Astro.props;
 
-function sizeToClass(size: CardConfig["size"]) {
+function sizeToStyle(size: CardConfig["size"]) {
   switch (size) {
     case "1x1":
-      return "col-span-1 row-span-1";
+      return "grid-column: span 1; grid-row: span 1;";
     case "1x2":
-      return "col-span-1 row-span-2";
+      return "grid-column: span 1; grid-row: span 2;";
     case "2x1":
-      return "col-span-2 row-span-1";
+      return "grid-column: span 2; grid-row: span 1;";
     case "2x2":
-      return "col-span-2 row-span-2";
+      return "grid-column: span 2; grid-row: span 2;";
     default:
-      return "col-span-1 row-span-1";
+      return "grid-column: span 1; grid-row: span 1;";
   }
 }
 ---
 
-<div class="grid-wrapper">
-  <div class="grid-container">
-    {cards.map((card) => (
-      <div class={`grid-item ${sizeToClass(card.size)}`}>
-        <CardBase config={card} />
-      </div>
-    ))}
-  </div>
+<div class="grid">
+  {cards.map((card) => (
+    <div style={sizeToStyle(card.size)}>
+      <CardBase config={card} />
+    </div>
+  ))}
 </div>
 
 <style>
-.grid-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 24px;
-}
-
-.grid-container {
+.grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 180px;
-  gap: 24px;
-}
-
-.grid-item {
-  position: relative;
-  width: 100%;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 220px;
+  gap: 28px;
+  padding: 60px;
 }
 </style>
