@@ -1,5 +1,4 @@
 ---
-
 import type { CardConfig } from "../../../lib/types/layout";
 import CardBase from "../cards/CardBase.astro";
 
@@ -25,22 +24,45 @@ function sizeToClass(size: CardConfig["size"]) {
 }
 ---
 
-<div class="grid-container">
-  {cards.map((card) => (
-    <div class={`grid-item ${sizeToClass(card.size)}`}>
-      <CardBase config={card} />
-    </div>
-  ))}
+<div class="grid-wrapper">
+  <div class="grid-container">
+    {cards.map((card) => (
+      <div class={`grid-item ${sizeToClass(card.size)}`}>
+        <CardBase config={card} />
+      </div>
+    ))}
+  </div>
 </div>
 
 <style>
+.grid-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-auto-rows: 180px;
+  gap: 24px;
 }
 
 .grid-item {
   position: relative;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
