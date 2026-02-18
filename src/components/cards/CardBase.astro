@@ -16,20 +16,58 @@ const { config } = Astro.props;
 const rotation = config.styles?.rotation ?? 0;
 const background = config.styles?.background;
 const textColor = config.styles?.textColor;
-const gridSize = config.gridSize ?? "1x1";
+const gridSize = config.size ?? "1x1";
 ---
 
 <div
-  class={`card size-${gridSize}`}
+  class={`card glass size-${gridSize}`}
   style={`
     ${background ? `background:${background};` : ""}
     ${textColor ? `color:${textColor};` : ""}
-    --rotation:${rotation}deg;
+    transform: rotate(${rotation}deg);
   `}
 >
-  {config.variant === "text" && <TextCard config={config} />}
-  {config.variant === "media" && <MediaCard config={config} />}
-  {config.variant === "sticker" && <StickerCard config={config} />}
-  {config.variant === "hero" && <HeroCard config={config} />}
-  {config.variant === "post-list" && <PostListCard config={config} />}
+  <div class="card-inner">
+    {config.variant === "text" && <TextCard config={config} />}
+    {config.variant === "media" && <MediaCard config={config} />}
+    {config.variant === "sticker" && <StickerCard config={config} />}
+    {config.variant === "hero" && <HeroCard config={config} />}
+    {config.variant === "post-list" && <PostListCard config={config} />}
+  </div>
 </div>
+
+<style>
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Liquid Glass */
+.glass {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* Hover depth */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+</style>
