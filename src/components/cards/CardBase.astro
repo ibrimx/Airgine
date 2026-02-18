@@ -1,0 +1,48 @@
+---
+
+import type { CardConfig } from "../../../lib/types/layout";
+
+import TextCard from "./TextCard.astro";
+import MediaCard from "./MediaCard.astro";
+import StickerCard from "./StickerCard.astro";
+import HeroCard from "./HeroCard.astro";
+import PostListCard from "./PostListCard.astro";
+
+interface Props {
+  config: CardConfig;
+}
+
+const { config } = Astro.props;
+
+const style = `
+  background: ${config.styles.background ?? "rgba(255,255,255,0.1)"};
+  transform: rotate(${config.styles.rotation ?? 0}deg);
+  color: ${config.styles.textColor ?? "#111"};
+`;
+---
+
+<div class="card glass" style={style}>
+  {config.variant === "text" && <TextCard config={config} />}
+  {config.variant === "media" && <MediaCard config={config} />}
+  {config.variant === "sticker" && <StickerCard config={config} />}
+  {config.variant === "hero" && <HeroCard config={config} />}
+  {config.variant === "post-list" && <PostListCard config={config} />}
+</div>
+
+<style>
+.card {
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+</style>
