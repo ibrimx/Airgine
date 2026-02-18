@@ -1,39 +1,36 @@
 ---
-import Base from "../layouts/Base.astro"
-import GridRenderer from "../components/grid/GridRenderer.astro"
+import Base from "../layouts/Base.astro";
 
-import { processContent } from "../lib/engine/contentEngine"
-import { generateCardConfigs } from "../lib/engine/layoutEngine"
-import { enhanceCard } from "../lib/engine/cardEngine"
-import type { ContentItem } from "../lib/types/content"
+import { processContent } from "../lib/engine/contentEngine";
+import { generateCardConfigs } from "../lib/engine/layoutEngine";
+import { enhanceCard } from "../lib/engine/cardEngine";
+
+import GridRenderer from "../components/grid/GridRenderer.astro";
+import type { ContentItem } from "../lib/types/content";
 
 const rawContent: ContentItem[] = [
-    {
-          id: "1",
-              slug: "hero-project",
-                  type: "project",
-                      section: "projects",
-                          title: "Hero Project",
-                              excerpt: "Big visual project showcase.",
-                                  cover: "https://picsum.photos/800/600",
-                                      cardVariant: "hero",
-                                          gridSize: "2x2",
-                                              background: "linear-gradient(135deg,#667eea,#764ba2)",
-                                                  textColor: "light",
-                                                      featured: true,
-                                                          status: "published"
-    }
-]
+  {
+    id: "1",
+    slug: "hero-project",
+    type: "project",
+    section: "projects",
+    title: "Hero Project",
+    excerpt: "Big visual project showcase.",
+    cover: "https://picsum.photos/1200/600",
+    cardVariant: "hero",
+    gridSize: "2x1",
+    background: "linear-gradient(135deg,#667eea,#764ba2)",
+    textColor: "white",
+    featured: true,
+    status: "published",
+  },
+];
 
-const published = processContent(rawContent)
-const configs = generateCardConfigs(published)
-const finalCards = configs.map(enhanceCard)
+const published = processContent(rawContent);
+const configs = generateCardConfigs(published);
+const finalCards = configs.map(enhanceCard);
 ---
 
 <Base>
-  <main style="padding:40px;">
-      <GridRenderer cards={finalCards} />
-        </main>
-        </Base>
-    }
-]
+  <GridRenderer cards={finalCards} />
+</Base>
