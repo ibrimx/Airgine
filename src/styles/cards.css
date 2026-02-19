@@ -16,7 +16,6 @@
   -webkit-backdrop-filter: blur(20px);
 
   border: 1px solid var(--glass-border);
-
   box-shadow: var(--shadow-md);
 
   transition:
@@ -32,7 +31,7 @@
   border-color: var(--accent);
 }
 
-/* Dark mode override */
+/* ✅ Fix: توحيد dark mode على [data-theme="dark"] */
 [data-theme="dark"] .card {
   background: var(--glass-bg-dark);
   border-color: var(--glass-border-dark);
