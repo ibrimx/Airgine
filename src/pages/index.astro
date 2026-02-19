@@ -20,7 +20,7 @@ const rawContent: ContentItem[] = [
     cardVariant: "hero",
     gridSize: "2x1",
     background: "linear-gradient(135deg,#667eea,#764ba2)",
-    textColor: "white",
+    textColor: "light", // ✅ Fix: "white" → "light"
     featured: true,
     status: "published",
   },
@@ -32,5 +32,7 @@ const finalCards = configs.map(enhanceCard);
 ---
 
 <Base>
-  <GridRenderer cards={finalCards} />
+  <div class="site">
+    <GridRenderer cards={finalCards} />
+  </div>
 </Base>
