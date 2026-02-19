@@ -6,6 +6,7 @@ import MediaCard from "./MediaCard.astro";
 import StickerCard from "./StickerCard.astro";
 import HeroCard from "./HeroCard.astro";
 import PostListCard from "./PostListCard.astro";
+import OverlayCard from "./OverlayCard.astro";
 
 interface Props {
   config: CardConfig;
@@ -13,68 +14,28 @@ interface Props {
 
 const { config } = Astro.props;
 
+// ✅ Fix 1: config.size بدل config.gridSize
+const gridSize = config.size ?? "1x1";
 const rotation = config.styles?.rotation ?? 0;
 const background = config.styles?.background;
 const textColor = config.styles?.textColor;
-const gridSize = config.gridSize ?? "1x1";
 ---
 
 <div
-  class={`air-card size-${gridSize}`}
+  class={`card size-${gridSize}`}
   style={`
     ${background ? `background:${background};` : ""}
     ${textColor ? `color:${textColor};` : ""}
-    transform: rotate(${rotation}deg);
+    ${rotation !== 0 ? `transform: rotate(${rotation}deg);` : ""}
   `}
 >
-  {config.variant === "text" && <TextCard config={config} />}
-  {config.variant === "media" && <MediaCard config={config} />}
-  {config.variant === "sticker" && <StickerCard config={config} />}
-  {config.variant === "hero" && <HeroCard config={config} />}
+  {config.variant === "text"      && <TextCard config={config} />}
+  {config.variant === "media"     && <MediaCard config={config} />}
+  {config.variant === "sticker"   && <StickerCard config={config} />}
+  {config.variant === "hero"      && <HeroCard config={config} />}
   {config.variant === "post-list" && <PostListCard config={config} />}
+  {/* ✅ Fix 2: إضافة overlay */}
+  {config.variant === "overlay"   && <OverlayCard config={config} />}
 </div>
 
-<style>
-.air-card {
-  position: relative;
-  border-radius: 28px;
-  padding: 24px;
-  overflow: hidden;
-
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-
-  border: 1px solid rgba(255,255,255,0.25);
-
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-
-  transition: transform .4s cubic-bezier(.2,.8,.2,1),
-              box-shadow .4s ease;
-}
-
-.air-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.6),
-    rgba(255,255,255,0.05)
-  );
-
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.air-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow:
-    0 18px 60px rgba(0,0,0,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.5);
-}
-</style>
+<!-- ✅ Fix 3: حذف glass المكرر — يستخدم cards.css بدلاً منه -->
