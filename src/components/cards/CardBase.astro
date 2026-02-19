@@ -14,15 +14,17 @@ interface Props {
 
 const { config } = Astro.props;
 
-// ✅ Fix 1: config.size بدل config.gridSize
 const gridSize = config.size ?? "1x1";
 const rotation = config.styles?.rotation ?? 0;
 const background = config.styles?.background;
 const textColor = config.styles?.textColor;
+
+// الكروت التي تملأ المساحة كاملة — بدون padding
+const isFullBleed = config.variant === "hero" || config.variant === "overlay";
 ---
 
 <div
-  class={`card size-${gridSize}`}
+  class={`card size-${gridSize} ${isFullBleed ? "card--full-bleed" : ""}`}
   style={`
     ${background ? `background:${background};` : ""}
     ${textColor ? `color:${textColor};` : ""}
@@ -34,8 +36,52 @@ const textColor = config.styles?.textColor;
   {config.variant === "sticker"   && <StickerCard config={config} />}
   {config.variant === "hero"      && <HeroCard config={config} />}
   {config.variant === "post-list" && <PostListCard config={config} />}
-  {/* ✅ Fix 2: إضافة overlay */}
   {config.variant === "overlay"   && <OverlayCard config={config} />}
 </div>
 
-<!-- ✅ Fix 3: حذف glass المكرر — يستخدم cards.css بدلاً منه -->
+<style>
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  min-height: 280px;
+  transition:
+    transform 0.25s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Full-bleed: بدون padding وبدون glass background */
+.card--full-bleed {
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  min-height: 280px;
+}
+
+.card--full-bleed:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .card {
+  background: var(--glass-bg-dark);
+  border-color: var(--glass-border-dark);
+}
+</style>
