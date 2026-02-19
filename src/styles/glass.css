@@ -1,12 +1,15 @@
 .glass {
-
-  background: var(--bg-glass);
+  background: var(--glass-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 
-  border: 1px solid var(--border-soft);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
 
   box-shadow: var(--shadow-md);
+}
 
+[data-theme="dark"] .glass {
+  background: var(--glass-bg-dark);
+  border-color: var(--glass-border-dark);
 }
