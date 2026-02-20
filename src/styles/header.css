@@ -1,16 +1,16 @@
+/* Header spacing only — no width control */
 .site-header {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 64px 24px 48px;
+  padding-top: 64px;
 }
 
-/* DESKTOP */
+/* Layout */
 .header-top {
   display: flex;
   align-items: center;
   gap: 36px;
 }
 
+/* Avatar */
 .avatar img {
   width: 120px;
   height: 120px;
@@ -19,7 +19,8 @@
   border: 1px solid #e6e3dc;
 }
 
-.header-top h1 {
+/* Name */
+.header-name {
   font-size: 40px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -27,17 +28,20 @@
   color: #1a1813;
 }
 
-.header-top p:nth-child(2) {
+/* Role */
+.header-role {
   font-size: 20px;
   margin-bottom: 8px;
   color: #1a1813;
 }
 
-.header-top p:nth-child(3) {
+/* Location */
+.header-location {
   font-size: 18px;
   color: #7b786f;
 }
 
+/* Bio */
 .header-bio {
   margin-top: 44px;
   max-width: 720px;
@@ -46,7 +50,24 @@
   color: #3c3a34;
 }
 
-/* MOBILE FIX */
+/* Tags */
+.header-tags {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-tags button {
+  background: #efece6;
+  border: 1px solid #e4e0d8;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
 
   .header-top {
@@ -60,7 +81,7 @@
     height: 96px;
   }
 
-  .header-top h1 {
+  .header-name {
     font-size: 32px;
   }
 
