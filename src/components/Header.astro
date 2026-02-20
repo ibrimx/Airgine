@@ -1,0 +1,27 @@
+---
+const {
+  name = "Keya Vadgama",
+  role = "Designer",
+  location = "Living in the Bay Area, but Toronto is home",
+  bio = "Designer specializing in brand storytelling and visual design.",
+  avatar = "/avatar.jpg",
+} = Astro.props;
+---
+
+<header class="site-header container">
+  <div class="header-top">
+    <div class="avatar">
+      <img src={avatar} alt={name} />
+    </div>
+
+    <div>
+      <h1>{name}</h1>
+      <p>{role}</p>
+      <p>{location}</p>
+    </div>
+  </div>
+
+  <div class="header-bio">
+    <p>{bio}</p>
+  </div>
+</header>
