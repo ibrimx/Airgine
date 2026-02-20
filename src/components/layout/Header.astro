@@ -1,37 +1,33 @@
 ---
 const {
-  name = "Keya Vadgama",
-  role = "Designer",
-  location = "Living in the Bay Area, but Toronto is home",
-  bio = "Keya is a designer specializing in brand storytelling, marketing, and visual design for AI-native products with a background in typeface design and web design and development.",
-  avatar = "/avatar.jpg",
+  name,
+  role,
+  location,
+  bio,
+  avatar
 } = Astro.props;
 ---
 
-<header class="section">
-  <div class="wrapper">
+<header class="profile">
+  <div class="profile-top">
+    <img src={avatar} alt={name} class="avatar" />
 
-    <div class="header-top">
-      <img class="avatar" src={avatar} alt={name} />
-
-      <div class="header-meta">
-        <h1>{name}</h1>
-        <p class="role">{role}</p>
-        <p class="location">{location}</p>
-      </div>
+    <div class="meta">
+      <h1>{name}</h1>
+      <p class="role">{role}</p>
+      <p class="location">{location}</p>
     </div>
+  </div>
 
-    <p class="bio">{bio}</p>
+  <p class="bio">{bio}</p>
 
-    <div class="tags">
-      <button>About me</button>
-      <button>Plumb</button>
-      <button>Supermanage</button>
-      <button>Marginalia</button>
-      <button>SBV</button>
-      <button>Logos</button>
-      <button>Sketches</button>
-    </div>
-
+  <div class="tags">
+    <button>About me</button>
+    <button>Plumb</button>
+    <button>Supermanage</button>
+    <button>Marginalia</button>
+    <button>SBV</button>
+    <button>Logos</button>
+    <button>Sketches</button>
   </div>
 </header>
