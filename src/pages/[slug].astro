@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import TOC from "../components/TOC.astro";
+
+interface Props {
+  slug: string;
+}
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "plumb" } },
+    { params: { slug: "supermanage" } },
+    { params: { slug: "marginalia" } },
+  ];
+}
+
+const { slug } = Astro.params as Props;
+
+const mockContent = {
+  title: slug.toUpperCase(),
+  body: `
+    <h2 id="intro">Introduction</h2>
+    <p>This is a sample page for ${slug}.</p>
+
+    <h2 id="details">Details</h2>
+    <p>More detailed content goes here.</p>
+
+    <h2 id="conclusion">Conclusion</h2>
+    <p>Final thoughts about ${slug}.</p>
+  `,
+};
+
+const tocItems = [
+  { id: "intro", title: "Introduction" },
+  { id: "details", title: "Details" },
+  { id: "conclusion", title: "Conclusion" },
+];
+---
+
+<BaseLayout>
+  <Header />
+
+  <main class="container">
+    <h1>{mockContent.title}</h1>
+
+    <div set:html={mockContent.body}></div>
+
+    <TOC items={tocItems} />
+  </main>
+</BaseLayout>
