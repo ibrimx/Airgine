@@ -1,1 +1,53 @@
+/* ======================
+   Reset
+====================== */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ======================
+   Base Typography
+====================== */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  background: #f3f1ec;
+  color: #1a1813;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Remove default browser heading sizing */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 500;
+  font-size: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+/* ======================
+   Layout Base
+====================== */
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+}
