@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import Header from "../components/layout/Header.astro";
+import Header from "../components/layout/Header.astro"
+import Canvas from "../components/canvas/Canvas"
+import { mockCanvasItems } from "../lib/mock/canvas"
 ---
 
 <BaseLayout>
   <Header />
+
+  <Canvas client:load items={mockCanvasItems} />
 </BaseLayout>
