@@ -40,3 +40,14 @@
   margin-bottom: 20px;
   object-fit: cover;
 }
+.text-card {
+  background: #f1eee8;
+}
+
+.image-card {
+  background: #e8edf2;
+}
+
+.link-card {
+  background: #efece6;
+}
