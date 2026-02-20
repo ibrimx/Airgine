@@ -8,30 +8,34 @@ const {
 } = Astro.props;
 ---
 
-<header class="site-header">
-  <div class="header-top">
-    <div class="avatar">
-      <img src={avatar} alt={name} />
+<header class="section">
+  <div class="wrapper">
+
+    <div class="header-top">
+      <div class="avatar">
+        <img src={avatar} alt={name} />
+      </div>
+
+      <div class="header-meta">
+        <h1 class="header-name">{name}</h1>
+        <p class="header-role">{role}</p>
+        <p class="header-location">{location}</p>
+      </div>
     </div>
 
-    <div class="header-meta">
-      <h1 class="header-name">{name}</h1>
-      <p class="header-role">{role}</p>
-      <p class="header-location">{location}</p>
+    <div class="header-bio">
+      <p>{bio}</p>
     </div>
-  </div>
 
-  <div class="header-bio">
-    <p>{bio}</p>
-  </div>
+    <nav class="header-tags">
+      <button>About me</button>
+      <button>Plumb</button>
+      <button>Supermanage</button>
+      <button>Marginalia</button>
+      <button>SBV</button>
+      <button>Logos</button>
+      <button>Sketches</button>
+    </nav>
 
-  <nav class="header-tags">
-    <button>About</button>
-    <button>Plumb</button>
-    <button>Supermanage</button>
-    <button>Marginalia</button>
-    <button>SBV</button>
-    <button>Logos</button>
-    <button>Sketches</button>
-  </nav>
+  </div>
 </header>
