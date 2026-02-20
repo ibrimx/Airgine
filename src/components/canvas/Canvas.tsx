@@ -1,18 +1,30 @@
-import type { CanvasItem } from '../../lib/types'
-import { mapLayout } from '../../lib/layout'
-import Card from './Card'
+import { mapLayout } from "@/lib/layout"
+import type { CanvasItem } from "@/types"
+import Card from "../Card"
 
-type CanvasProps = {
+interface Props {
   items: CanvasItem[]
 }
 
-export default function Canvas({ items }: CanvasProps) {
-  const mappedItems = mapLayout(items)
+export default function Canvas({ items }: Props) {
+  const positioned = mapLayout(items)
 
   return (
     <div className="canvas">
-      {mappedItems.map((item) => (
-        <Card key={item.id} item={item} />
+      {positioned.map((item) => (
+        <div
+          key={item.id}
+          className="canvas-item"
+          style={{
+            gridColumn: `${item.desktop.colStart} / span ${item.desktop.colSpan}`,
+            gridRow: `${item.desktop.rowStart} / span ${item.desktop.rowSpan}`,
+          }}
+          data-mobile-col={item.mobile.colStart}
+          data-mobile-span={item.mobile.colSpan}
+          data-mobile-row={item.mobile.rowStart}
+        >
+          <Card item={item} />
+        </div>
       ))}
     </div>
   )
