@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { mapLayout } from "@/lib/layout"
 import type { CanvasItem } from "@/types"
-import Card from "../Card"
+import Card from "./Card"
 
 interface Props {
   items: CanvasItem[]
