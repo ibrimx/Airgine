@@ -1,0 +1,11 @@
+---
+const { items = [] } = Astro.props;
+---
+
+<nav class="toc">
+  <ul>
+    {items.map((item) => (
+      <li><a href={`#${item.id}`}>{item.title}</a></li>
+    ))}
+  </ul>
+</nav>
