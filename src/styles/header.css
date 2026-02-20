@@ -18,7 +18,7 @@ site-header {
 }
 
 .header-info h1 {
-  font-size: 30px;
+  font-size: 44px;
   font-weight: 500;
   letter-spacing: -0.01em;
   margin: 0 0 8px;
@@ -26,7 +26,7 @@ site-header {
 }
 
 .role {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0 0 6px;
   color: #1a1813;
 }
@@ -37,10 +37,9 @@ site-header {
   margin: 0;
 }
 
-.bio {
-  margin-top: 48px;
-  max-width: 760px;
-  font-size: 22px;
+.header-bio p {
+  font-size: 20px;
   line-height: 1.6;
-  color: #3c3a34;
+  margin-top: 40px;
+  max-width: 720px;
 }
