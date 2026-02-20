@@ -1,14 +1,11 @@
 body {
-  background: #f9f7f2;
   margin: 0;
+  background: #f3f1ec;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 }
 
-.wrapper {
-  max-width: 1040px;
+.page {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section {
-  margin-bottom: 72px;
+  padding: 80px 24px 40px;
 }
