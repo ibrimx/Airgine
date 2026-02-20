@@ -1,15 +1,19 @@
-.card {
-  background: #fdfdfb;
-  border-radius: 24px;
+.canvas {
+  margin-top: 60px;
+}
+
+.canvas-item {
+  background: #f3f1ec;
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.card-media {
-  margin-bottom: 12px;
-}
-
-.card-content h3 {
-  font-size: 18px;
+.card h3 {
+  font-size: 22px;
   margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 16px;
+  opacity: 0.7;
 }
