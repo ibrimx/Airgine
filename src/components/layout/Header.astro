@@ -12,22 +12,18 @@ const {
   <div class="wrapper">
 
     <div class="header-top">
-      <div class="avatar">
-        <img src={avatar} alt={name} />
-      </div>
+      <img class="avatar" src={avatar} alt={name} />
 
       <div class="header-meta">
-        <h1 class="header-name">{name}</h1>
-        <p class="header-role">{role}</p>
-        <p class="header-location">{location}</p>
+        <h1>{name}</h1>
+        <p class="role">{role}</p>
+        <p class="location">{location}</p>
       </div>
     </div>
 
-    <div class="header-bio">
-      <p>{bio}</p>
-    </div>
+    <p class="bio">{bio}</p>
 
-    <nav class="header-tags">
+    <div class="tags">
       <button>About me</button>
       <button>Plumb</button>
       <button>Supermanage</button>
@@ -35,7 +31,7 @@ const {
       <button>SBV</button>
       <button>Logos</button>
       <button>Sketches</button>
-    </nav>
+    </div>
 
   </div>
 </header>
