@@ -1,11 +1,1 @@
-body {
-  margin: 0;
-  background: #f3f1ec;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-}
 
-.page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 24px 40px;
-}
