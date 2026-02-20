@@ -1,8 +1,10 @@
 ---
 import "../styles/base.css";
-import "../styles/global.css";
+import "../styles/layout.css";
 import "../styles/header.css";
 import "../styles/footer.css";
+
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -14,7 +16,8 @@ import "../styles/footer.css";
   <body>
     <main class="page">
       <slot />
-      <Footer />
     </main>
+
+    <Footer />
   </body>
 </html>
